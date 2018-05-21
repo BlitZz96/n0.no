@@ -1,6 +1,8 @@
-# hmm
+# n0.no
 
-> A Vue.js project
+> A Vue.js project just to have something on the domain
+
+![Image of website](https://i.imgur.com/70YCgaa.png) 
 
 ## Build Setup
 
