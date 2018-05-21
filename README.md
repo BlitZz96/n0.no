@@ -1,5 +1,4 @@
-# n0.no
-Personal website
+# hmm
 
 > A Vue.js project
 

@@ -1,4 +1,4 @@
-import lighthouse from './lighthouse'
+import lighthouse from './components/lighthouse'
 
 export default {
     name: 'home',

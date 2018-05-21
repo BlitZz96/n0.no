@@ -1,5 +1,5 @@
 {
-  "name": "n0",
+  "name": "hmm",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "BlitZz96 <solve@rocketstudios.no>",
@@ -12,8 +12,7 @@
   "dependencies": {
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue": "^2.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
