@@ -33,7 +33,7 @@ export default {
         /**
          * Plays a sound via HTMLMediaElement API
          *  Adds element to object for later manipulating
-         *  - Even your backstreet boys collection is welcome here.
+         *  - Even your backstreet boys collection is welcome here. 
          * @param {String} src 
          * @param {Boolean} [loop=false] 
          */
