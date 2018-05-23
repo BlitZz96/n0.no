@@ -9,11 +9,6 @@
       </svg>
     </button>
 
-    <audio ref="riverSound" autoplay loop>
-      <source src="./assets/water-river.wav" type="audio/ogg">
-      Your browser does not support html5 audio.
-    </audio>
-    
   </main>
 </template>
 
