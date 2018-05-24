@@ -41,7 +41,7 @@ export default {
     mounted() {
         //Todo: Fix bug regarding play() on start
         // The user needs to interact with the page before play() can be used.
-        // this.playSound(this.sounds.river, true);
+        this.playSound(this.sounds.river, true);
         this.getElements()
         this.registerClickListener(this.objects.fuseBox.el, this.RunfuseBox)
     },
@@ -70,7 +70,7 @@ export default {
             // transform: rotateX(3deg);
             // transform - origin: 0px 0 100px;
 
-            //Play different sound & animation relative to lever status
+            Play different sound & animation relative to lever status
             if(lever.on) {
                 this.playSound(lever.sounds[0])
                 options = {
