@@ -70,7 +70,7 @@ export default {
             // transform: rotateX(3deg);
             // transform - origin: 0px 0 100px;
 
-            Play different sound & animation relative to lever status
+            // Play different sound & animation relative to lever status
             if(lever.on) {
                 this.playSound(lever.sounds[0])
                 options = {
