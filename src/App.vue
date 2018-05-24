@@ -13,6 +13,14 @@
 </template>
 
 <style lang="scss">
+
+.scene {
+  #powerLever {
+    transform-origin: 0px 0 100px;
+  }
+}
+
+
 html, body, #app {
   height: 100%;
 }
