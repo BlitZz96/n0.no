@@ -18,8 +18,28 @@ export default {
                 river: riverSound
             },
             objects: {
+                fishing: {
+                    hook: {
+                        el: null,
+                        shadow: {
+                            el: null
+                        },
+                        sounds: [],
+                    },
+                    line: {
+                        el: null,
+                        shadow: {
+                            el: null,
+                            tense: null
+                        },
+                        tense: null
+                    },
+                    pole: {
+                        el: null,
+                        sounds: []
+                    }
+                },
                 fuseBox: {
-                    el: null,
                     sounds: [],
                     powerLever: {
                         el: null,
@@ -43,7 +63,10 @@ export default {
         // The user needs to interact with the page before play() can be used.
         this.playSound(this.sounds.river, true);
         this.getElements()
-        this.registerClickListener(this.objects.fuseBox.el, this.RunfuseBox)
+
+        // Add eventlisteners for the interactive elements
+        this.registerClickListener(this.get('clickFuseBox'), this.RunfuseBox)
+        this.registerClickListener(this.get('clickFishing'), this.runGetFish)
     },
 
     methods: {
@@ -54,21 +77,34 @@ export default {
             })
         },
 
+        get(id) {
+            return document.getElementById(id)
+        },
+
+        getDataValue(id) {
+            return this.get(id).attributes.d.value;
+        },
+
         /**
          * Get elements from svg and merge in to objects object.
          */
         getElements() {
             let o = this.objects;
-            o.fuseBox.el = document.getElementById('fuseBox')
-            o.fuseBox.powerLever.el = document.getElementById('powerLever')
-            o.toolBox.el = document.getElementById('toolBox')
+            o.fuseBox.powerLever.el = this.get('powerLever')
+
+            o.toolBox.el = this.get('toolBox')
+
+            o.fishing.hook.el = this.get('fishingHook1')
+            o.fishing.hook.shadow.el = this.get('fishingHookShadow')
+            o.fishing.line.el = this.get('slack')
+            o.fishing.line.tense = this.getDataValue('tense')
+            o.fishing.line.shadow.el = this.get('fishingLineShadow')
+            o.fishing.line.shadow.tense = this.getDataValue('fishingLineShadowTense')
         },
 
         RunfuseBox(el) {
             const lever = this.objects.fuseBox.powerLever;
             let options = {};
-            // transform: rotateX(3deg);
-            // transform - origin: 0px 0 100px;
 
             // Play different sound & animation relative to lever status
             if(lever.on) {
@@ -92,6 +128,43 @@ export default {
                 targets: lever.el,
                 easing: 'easeInOutQuint'
             }));
+        },
+
+        runGetFish() {
+            const el = this.objects.fishing;
+
+            // "Drown" fishing hook
+            let x = anime({
+                targets: el.hook.el,
+                easing: 'easeInOutBack',
+                translateY: '12px',
+                duration: 1000,
+            })
+            // animate shadow recordingly
+            anime({
+                targets: el.hook.shadow.el,
+                easing: 'easeInOutBack',
+                translateX: '-10.63px',
+                duration: 1000,
+            })
+
+            // Make fishing line tense
+            anime({
+                targets: el.line.el,
+                easing: 'easeInOutElastic',
+                d: el.line.tense,
+                duration: 1000,
+                delay: 0,
+            })
+            // animate shadow recordingly
+            anime({
+                targets: el.line.shadow.el,
+                easing: 'easeInOutElastic',
+                d: el.line.shadow.tense,
+                duration: 1000,
+                delay: 0,
+            })
+            
         },
 
         /**
