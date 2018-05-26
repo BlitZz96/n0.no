@@ -14,9 +14,13 @@
 
 <style lang="scss">
 
-.scene {
+svg {
   #powerLever {
     transform-origin: 0px 0 100px;
+  }
+  #clickable path{
+    fill: transparent !important;
+    cursor: help;
   }
 }
 
